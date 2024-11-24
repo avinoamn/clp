@@ -36,3 +36,13 @@ val args: Array = Array("--a", "eyJhIjogImFzZCJ9")
 
 CommandLineParser.parse[Args](args)
 ```
+
+## Supported Types:
+* `String`
+* `Boolean`
+* `Int`
+* `Long`
+* `Float`
+* `Double`
+* `List[_]` ( _ == supported type )
+* `case class` ( cc fields are of the supported types )
