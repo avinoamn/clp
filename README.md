@@ -1,5 +1,22 @@
 # clp
-Command-Line-Parser for Scala programs
+A flexible and easy-to-use command-line parser for Scala programs.
+
+This project provides a powerful way to parse command-line arguments into Scala case classes, supporting various data types such as `String`, `Int`, `List[_]`, and even JSON-encoded strings.
+
+## Installation
+
+To include this library in your project, clone this repository and install it locally.
+
+For Maven users, add the following dependency to your `pom.xml`:
+
+```xml
+<dependency>
+   <groupId>github.avinoamn</groupId>
+   <artifactId>clp_${scala.major.version}</artifactId>
+   <version>1.0.0</version>
+   <scope>compile</scope>
+</dependency>
+```
 
 ## Basic program args example
 ```
@@ -11,7 +28,6 @@ CommandLineParser.parse[Args](args)
 ```
 
 ## Case class program arg example (from json string)
-*`case class` args must have the `@JsonCodec` annotation or decoding them will fail.
 ```
 import github.avinoamn.clp.types.JsonString
 import io.circe.generic.JsonCodec
@@ -44,5 +60,5 @@ CommandLineParser.parse[Args](args)
 * `Long`
 * `Float`
 * `Double`
-* `List[_]` ( _ == supported type )
-* `case class` ( cc fields are of the supported types )
+* `List[_]`: `_` can be of any supported type
+* `case class`: must have the `@JsonCodec` annotation and extend either `JsonString` or `Base64EncodedJsonString` traits for the decoding to succeed
